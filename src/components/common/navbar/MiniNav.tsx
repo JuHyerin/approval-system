@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {
+  Box,
   Divider,
   Drawer,
   styled,
@@ -49,8 +50,10 @@ export const MiniNav = (props: IMiniNav) => {
     <StyledDrawer variant="permanent" open={open}>
       <Toolbar/>
       <NavList open={open} list={menuList} onClick={onMenuNavListClick} selected={!isSettingSelected} />
-      <Divider/>
-      <NavList open={open} list={settingList} onClick={onSettingNavListClick} selected={isSettingSelected}/>
+      <Box sx={{position: 'absolute', bottom: 0, right: 0, left: 0}}>
+        <Divider/>
+        <NavList open={open} list={settingList} onClick={onSettingNavListClick} selected={isSettingSelected}/>
+      </Box>
     </StyledDrawer>
   )
 }
